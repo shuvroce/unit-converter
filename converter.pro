@@ -1,6 +1,9 @@
+# Qt Widgets
 QT += widgets
+
+# C++ version
 CONFIG += c++17 windows
-CONFIG -= console
+CONFIG -= console   # <-- Remove console completely
 
 TEMPLATE = app
 TARGET = converter

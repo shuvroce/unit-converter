@@ -7,11 +7,6 @@
 #include <QLabel>
 #include <memory>
 #include <vector>
-
-#ifdef _WIN32
-#include <windows.h>
-#endif
-
 #include "calcs.h"
 
 class ConverterApp : public QWidget {
@@ -19,7 +14,6 @@ class ConverterApp : public QWidget {
 
 public:
     ConverterApp(QWidget *parent = nullptr) : QWidget(parent) {
-        // --- Layout ---
         auto *layout = new QVBoxLayout(this);
 
         input = new QLineEdit(this);
@@ -35,7 +29,7 @@ public:
         result = new QLabel("Result will appear here", this);
         layout->addWidget(result);
 
-        // --- Register converters ---
+        // Register converters
         registerConverter(std::make_unique<LengthConverter>());
         registerConverter(std::make_unique<TemperatureConverter>());
 
@@ -47,7 +41,7 @@ public:
             Qt::WindowTitleHint |       // Show title bar
             Qt::WindowSystemMenuHint |  // Show system menu
             Qt::WindowMinimizeButtonHint | // Only minimize
-            Qt::WindowCloseButtonHint   // Only close button
+            Qt::WindowCloseButtonHint   // Only close
         );
 
         setFixedSize(350, 180);        // Non-resizable
@@ -86,11 +80,6 @@ private:
 
 int main(int argc, char *argv[]) {
     QApplication app(argc, argv);
-
-    // --- Remove console window on Windows ---
-    #ifdef _WIN32
-    ::FreeConsole();
-    #endif
 
     ConverterApp window;
     window.show();
