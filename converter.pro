@@ -1,7 +1,6 @@
 QT += widgets
-
-CONFIG += c++17 console
-CONFIG -= app_bundle
+CONFIG += c++17 windows
+CONFIG -= console
 
 TEMPLATE = app
 TARGET = converter
