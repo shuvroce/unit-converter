@@ -1,0 +1,98 @@
+# ========================
+# Qt / C++ Gitignore
+# ========================
+
+# Build directories
+build*/
+Build*/
+[Bb]uild/
+[Bb]in/
+[Ll]ib/
+dist/
+release/
+debug/
+out/
+tmp/
+obj/
+
+# Compiled object files and libraries
+*.o
+*.obj
+*.lo
+*.la
+*.a
+*.lib
+*.dll
+*.so
+*.so.*
+*.dylib
+*.exe
+*.out
+*.app
+
+# Qt user/project-specific
+*.pro.user
+*.pro.user.*
+*.qbs.user
+*.qbs.user.*
+*.moc
+*.qmake.stash
+*.qmake.cache
+
+# Qt Creator
+*.autosave
+*.creator.*
+*.files
+*.includes
+*.config
+*.creator
+*.user
+*.workspace
+
+# Generated files
+moc_*.cpp
+ui_*.h
+qrc_*.cpp
+*.qm
+*.qrc.dep
+*.tmp
+*.bak
+*.swp
+
+# CMake
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+Makefile
+install_manifest.txt
+compile_commands.json
+CTestTestfile.cmake
+
+# Visual Studio (MSVC + Qt)
+*.sln
+*.vcxproj
+*.vcxproj.filters
+*.vcxproj.user
+*.ncb
+*.sdf
+*.opensdf
+*.VC.db
+*.VC.opendb
+
+# Xcode
+*.xcworkspace
+*.xcuserstate
+*.xcodeproj/*
+!*.xcodeproj/project.pbxproj
+
+# IDE specific
+.vscode/
+.idea/
+
+# Logs
+*.log
+
+# OS specific
+.DS_Store
+Thumbs.db
+desktop.ini
