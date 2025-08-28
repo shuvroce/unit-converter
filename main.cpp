@@ -39,9 +39,9 @@ public:
         toCombo   = new QComboBox(this);
         QLabel *arrowLabel = new QLabel("→", this);
         arrowLabel->setAlignment(Qt::AlignCenter);
-        converterLayout->addWidget(fromCombo);
-        converterLayout->addWidget(arrowLabel);
-        converterLayout->addWidget(toCombo);
+        converterLayout->addWidget(fromCombo, 3);
+        converterLayout->addWidget(arrowLabel, 1);
+        converterLayout->addWidget(toCombo, 3);
         layout->addLayout(converterLayout);
 
         // --- Convert button ---
@@ -135,14 +135,36 @@ private slots:
     }
 
     void showAbout() {
-        QMessageBox::about(this, "About",
-            "Unit Converter\n\n"
-            "Features:\n"
-            "- Supports multiple categories\n"
-            "- From → To conversion\n"
-            "- Copy result to clipboard\n"
-            "- Always on top\n"
-            "- Written with Qt and C++");
+        QString text =
+            "<b>Unit Converter for Engineers</b><br><br>"
+            "<u>Features:</u><br>"
+            "- Supports multiple categories<br>"
+            "- From → To conversion<br>"
+            "- Copy result to clipboard<br>"
+            "- Always on top<br>"
+            "- Written with Qt and C++<br><br>"
+
+            "Copyright (c) 2025 Md. Akram Hossain.<br>"
+            "All rights reserved.<br><br>"
+
+            // "<div align='center'>"
+            "<a href='https://akramh.com'>Website</a> | "
+            "<a href='https://facebook.com/ahshuvro'>Facebook</a> | "
+            "<a href='https://linkedin.com/in/ahshuvro'>Linkedin</a> | "
+            "<a href='https://github.com/shuvroce/unit-converter'>GitHub</a>";
+            // "</div>";
+
+        QMessageBox msgBox(this);  // parent = main window
+        msgBox.setWindowTitle("About");
+        msgBox.setTextFormat(Qt::RichText);
+        msgBox.setTextInteractionFlags(Qt::TextBrowserInteraction);
+        msgBox.setText(text);
+        msgBox.setStandardButtons(QMessageBox::Ok);
+
+        // make sure it stays on top like the main app
+        msgBox.setWindowFlags(msgBox.windowFlags() | Qt::WindowStaysOnTopHint);
+
+        msgBox.exec();
     }
 
     void loadConverters(const QString &category) {
