@@ -26,8 +26,6 @@ ui_*.h
 *.pro.user
 *.qmake.stash
 *.qmake.cache
-*.rc
-*.qrc
 
 # --------------------
 # VS Code
