@@ -40,16 +40,25 @@ public:
         // --- Convert button ---
         auto *button = new QPushButton("Convert", this);
         button->setDefault(true); // Enter triggers this button
+        button->setAutoDefault(true); // Numpad Enter works too
         layout->addWidget(button);
+
+        // Connect Enter key from input field
+        connect(input, &QLineEdit::returnPressed, this, &ConverterApp::doConvert);
 
         // --- Result layout (label + copy icon button) ---
         auto *resultLayout = new QHBoxLayout();
         result = new QLabel("Result", this);
-        result->setStyleSheet("QLabel { border: 1px solid gray; padding: 3px; background: #f9f9f9; }");
+        result->setStyleSheet("QLabel { border: 1px solid #bebebe; border-radius: 2px; padding: 2px; background: #ffffff; }");
         resultLayout->addWidget(result);
 
         auto *copyButton = new QPushButton(this);
         copyButton->setIcon(QIcon(":/assets/copy.png"));
+        copyButton->setToolTip("Copy");
+        copyButton->setFixedSize(24, 24);
+        copyButton->setIconSize(QSize(16, 16));
+        copyButton->setFlat(true); // remove button border
+        
         resultLayout->addWidget(copyButton);
         layout->addLayout(resultLayout);
 
@@ -57,10 +66,10 @@ public:
         layout->addStretch();
 
         /// --- Separator line and bottom bar ---
-        QFrame *line = new QFrame(this);
-        line->setFrameShape(QFrame::HLine);
-        line->setFrameShadow(QFrame::Sunken);
-        layout->addWidget(line);
+        // QFrame *line = new QFrame(this);
+        // line->setFrameShape(QFrame::HLine);
+        // line->setFrameShadow(QFrame::Sunken);
+        // layout->addWidget(line);
 
         // --- Compact bottom bar ---
         auto *bottomLayout = new QHBoxLayout();
@@ -78,7 +87,7 @@ public:
 
         QWidget *bottomWidget = new QWidget(this);
         bottomWidget->setLayout(bottomLayout);
-        bottomWidget->setFixedHeight(16); // compact bottom bar
+        bottomWidget->setFixedHeight(24); // compact bottom bar
         layout->addWidget(bottomWidget);
 
         // --- Register converters ---
@@ -96,11 +105,12 @@ public:
             Qt::WindowTitleHint |
             Qt::WindowSystemMenuHint |
             Qt::WindowMinimizeButtonHint |
-            Qt::WindowCloseButtonHint
+            Qt::WindowCloseButtonHint |
+            Qt::WindowStaysOnTopHint   // <--- keeps window always on top
         );
 
-        setFixedSize(200, 220);
-        setWindowTitle("eUnits");
+        setFixedSize(230, 200);
+        setWindowTitle("Units");
 
         // --- App Icon ---
         QIcon appIcon(":/assets/icon.png");
@@ -128,7 +138,7 @@ private slots:
     }
 
     void showAbout() {
-        QMessageBox::about(this, "About Unit Converter",
+        QMessageBox::about(this, "About",
             "Unit Converter\n\n"
             "Features:\n"
             "- Supports multiple categories\n"
