@@ -262,7 +262,7 @@ public:
             case N_M:    result = value; break;
             case N_MM:   result = value / 1000.0; break;
             case KN_M:   result = value * 1000.0; break;
-            case KN_MM:  result = value; break; // already N-m? will need proper scaling
+            case KN_MM:  result = value; break;
             case LB_IN:  result = value * 0.113; break;
             case LB_FT:  result = value * 1.356; break;
             case KIP_IN: result = value * 113.0; break;
@@ -323,13 +323,13 @@ public:
 
     QString name() const override {
         switch(unit) {
-            case PA:  return "Pa";
-            case KPA: return "kPa";
-            case MPA: return "MPa";
-            case PSI: return "psi";
-            case KSI: return "ksi";
-            case PSF: return "psf";
-            case KSF: return "ksf";
+            case PA:  return "Pa (N/m²)";
+            case KPA: return "kPa (kN/m²)";
+            case MPA: return "MPa (N/mm²)";
+            case PSI: return "psi (lb/in²)";
+            case KSI: return "ksi (kip/in²)";
+            case PSF: return "psf (lb/ft²)";
+            case KSF: return "ksf (kip/ft²)";
         }
         return "Unknown";
     }
