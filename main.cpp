@@ -12,6 +12,7 @@
 #include <QDoubleValidator>
 #include <memory>
 #include <vector>
+
 #include "calcs.h"
 
 class ConverterApp : public QWidget {
@@ -23,7 +24,7 @@ public:
 
         // --- Category dropdown ---
         categoryCombo = new QComboBox(this);
-        categoryCombo->addItems({"Length", "Temperature"});
+        categoryCombo->addItems({"Length", "Temperature", "Velocity", "Force", "Moment", "Pressure", "Area", "Volume"});
         layout->addWidget(categoryCombo);
 
         // --- Input field ---
@@ -155,6 +156,30 @@ private slots:
         }
         else if (category == "Temperature") {
             auto units = TemperatureConverter::allUnits();
+            for (auto &u : units) registerConverter(std::move(u));
+        }
+        else if (category == "Velocity") {
+            auto units = VelocityConverter::allUnits();
+            for (auto &u : units) registerConverter(std::move(u));
+        }
+        else if (category == "Force") {
+            auto units = ForceConverter::allUnits();
+            for (auto &u : units) registerConverter(std::move(u));
+        }
+        else if (category == "Moment") {
+            auto units = MomentConverter::allUnits();
+            for (auto &u : units) registerConverter(std::move(u));
+        }
+        else if (category == "Pressure") {
+            auto units = PressureConverter::allUnits();
+            for (auto &u : units) registerConverter(std::move(u));
+        }
+        else if (category == "Area") {
+            auto units = AreaConverter::allUnits();
+            for (auto &u : units) registerConverter(std::move(u));
+        }
+        else if (category == "Volume") {
+            auto units = VolumeConverter::allUnits();
             for (auto &u : units) registerConverter(std::move(u));
         }
     }
