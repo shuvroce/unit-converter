@@ -1,4 +1,4 @@
-# Unit Converter for Engineers
+# Gunter – Unit Converter for Engineers
 
 A lightweight, always-on-top **unit converter** desktop application for civil and structural engineers, built with **C++ and Qt 5**. Supports multiple categories of units and provides **From → To conversion** with a clean GUI.
 
@@ -23,14 +23,14 @@ A lightweight, always-on-top **unit converter** desktop application for civil an
 
 ## Screenshots
 
-![App Screenshot](./screenshots/app_screenshot.png)  
+![App Screenshot](./assets/screenshot.png)
 
 
 ## Installation
 
 ### Windows
 
-1. Download the installer `_setup.exe` from [release](https://github.co/) section.
+1. Download the installer `_setup.exe` from [release](https://github.com/shuvroce/unit-converter/releases) section.
 2. Run the installer and follow the guide.  
 3. Launch the app from Start Menu or desktop shortcut.  
 

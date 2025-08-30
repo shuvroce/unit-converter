@@ -41,7 +41,7 @@ public:
         arrowLabel->setAlignment(Qt::AlignCenter);
         converterLayout->addWidget(fromCombo, 3);
         converterLayout->addWidget(arrowLabel, 1);
-        converterLayout->addWidget(toCombo, 3);
+        converterLayout->addWidget(toCombo, 4);
         layout->addLayout(converterLayout);
 
         // --- Convert button ---
@@ -53,8 +53,10 @@ public:
 
         // --- Result layout ---
         auto *resultLayout = new QHBoxLayout();
-        result = new QLabel("Result", this);
+        // result_label = new QLabel("Result", this);
+        result = new QLabel(this);
         result->setStyleSheet("QLabel { border: 1px solid #bebebe; border-radius: 2px; padding: 2px; background: #ffffff; }");
+        // resultLayout->addWidget(result_label);
         resultLayout->addWidget(result);
 
         auto *copyButton = new QPushButton(this);
@@ -106,7 +108,7 @@ public:
             Qt::WindowStaysOnTopHint
         );
         setFixedSize(240, 200);
-        setWindowTitle("Units");
+        setWindowTitle("Gunter");
         setWindowIcon(QIcon(":/assets/icon.png"));
     }
 
@@ -136,7 +138,7 @@ private slots:
 
     void showAbout() {
         QString text =
-            "<b>Unit Converter for Engineers</b><br><br>"
+            "<b>Gunter – Unit Converter for Engineers</b><br><br>"
             "<u>Features:</u><br>"
             "- Supports multiple categories<br>"
             "- From → To conversion<br>"
