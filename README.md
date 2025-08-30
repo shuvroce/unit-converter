@@ -30,7 +30,7 @@ A lightweight, always-on-top **unit converter** desktop application for civil an
 
 ### Windows
 
-1. Download the installer `_setup.exe` from [release](https://github.com/shuvroce/unit-converter/releases) section.
+1. Download the installer `ell-setup.exe` from [release](https://github.com/shuvroce/unit-converter/releases) section.
 2. Run the installer and follow the guide.  
 3. Launch the app from Start Menu or desktop shortcut.  
 

@@ -6,7 +6,7 @@ RESOURCES += resources.qrc
 RC_FILE = app.rc
 
 TEMPLATE = app
-TARGET = converter
+TARGET = ell
 
 SOURCES += main.cpp
 
