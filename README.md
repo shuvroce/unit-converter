@@ -1,4 +1,4 @@
-# Gunter – Unit Converter for Engineers
+# Ell – Engineering Unit Converter
 
 A lightweight, always-on-top **unit converter** desktop application for civil and structural engineers, built with **C++ and Qt 5**. Supports multiple categories of units and provides **From → To conversion** with a clean GUI.
 

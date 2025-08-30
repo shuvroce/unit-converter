@@ -9,7 +9,7 @@
 class ConverterBase {
 public:
     virtual ~ConverterBase() {}
-    virtual QString name() const = 0;           // Dropdown / abbreviation
+    virtual QString name() const = 0;
     virtual double toBase(double value) const = 0; 
     virtual QString fromBase(double baseValue) const = 0;
 };
@@ -61,7 +61,10 @@ public:
             case YARD: result = baseValue / 0.9144; break;
             case MILE: result = baseValue / 1609.34; break;
         }
-        return QString::number(result, 'f', 3);
+        QString s = QString::number(result, 'f', 4);
+        s.remove(QRegExp("0+$")); // remove trailing zeros
+        s.remove(QRegExp("\\.$")); // remove trailing dot if needed
+        return s;
     }
 
     static std::vector<std::unique_ptr<ConverterBase>> allUnits() {
@@ -113,7 +116,10 @@ public:
             case F: result = baseValue * 9.0 / 5.0 + 32.0; break;
             case K: result = baseValue + 273.15; break;
         }
-        return QString::number(result, 'f', 3);
+        QString s = QString::number(result, 'f', 4);
+        s.remove(QRegExp("0+$"));
+        s.remove(QRegExp("\\.$"));
+        return s;
     }
 
     static std::vector<std::unique_ptr<ConverterBase>> allUnits() {
@@ -163,7 +169,10 @@ public:
             case MS:   result = baseValue; break;
             case FTS:  result = baseValue / 0.3048; break;
         }
-        return QString::number(result, 'f', 3);
+        QString s = QString::number(result, 'f', 4);
+        s.remove(QRegExp("0+$"));
+        s.remove(QRegExp("\\.$"));
+        return s;
     }
 
     static std::vector<std::unique_ptr<ConverterBase>> allUnits() {
@@ -220,7 +229,10 @@ public:
             case LB:   result = baseValue / 4.44822; break;
             case KIP:  result = baseValue / 4448.22; break;
         }
-        return QString::number(result, 'f', 3);
+        QString s = QString::number(result, 'f', 4);
+        s.remove(QRegExp("0+$"));
+        s.remove(QRegExp("\\.$"));
+        return s;
     }
 
     static std::vector<std::unique_ptr<ConverterBase>> allUnits() {
@@ -291,7 +303,10 @@ public:
             case KGF_IN: result = baseValue / 0.8139; break;
             case KGF_FT: result = baseValue / 9.766; break;
         }
-        return QString::number(result, 'f', 3);
+        QString s = QString::number(result, 'f', 4);
+        s.remove(QRegExp("0+$"));
+        s.remove(QRegExp("\\.$"));
+        return s;
     }
 
     static std::vector<std::unique_ptr<ConverterBase>> allUnits() {
@@ -359,7 +374,10 @@ public:
             case PSF: result = baseValue / 47.8803; break;
             case KSF: result = baseValue / 47880.3; break;
         }
-        return QString::number(result, 'f', 3);
+        QString s = QString::number(result, 'f', 4);
+        s.remove(QRegExp("0+$"));
+        s.remove(QRegExp("\\.$"));
+        return s;
     }
 
     static std::vector<std::unique_ptr<ConverterBase>> allUnits() {
@@ -419,7 +437,10 @@ public:
             case IN2: result = baseValue / 0.00064516; break;
             case FT2: result = baseValue / 0.092903; break;
         }
-        return QString::number(result, 'f', 3);
+        QString s = QString::number(result, 'f', 4);
+        s.remove(QRegExp("0+$"));
+        s.remove(QRegExp("\\.$"));
+        return s;
     }
 
     static std::vector<std::unique_ptr<ConverterBase>> allUnits() {
@@ -478,7 +499,10 @@ public:
             case IN3: result = baseValue / 1.6387e-5; break;
             case FT3: result = baseValue / 0.0283168; break;
         }
-        return QString::number(result, 'f', 3);
+        QString s = QString::number(result, 'f', 4);
+        s.remove(QRegExp("0+$"));
+        s.remove(QRegExp("\\.$"));
+        return s;
     }
 
     static std::vector<std::unique_ptr<ConverterBase>> allUnits() {

@@ -39,7 +39,7 @@ public:
         toCombo   = new QComboBox(this);
         QLabel *arrowLabel = new QLabel("→", this);
         arrowLabel->setAlignment(Qt::AlignCenter);
-        converterLayout->addWidget(fromCombo, 3);
+        converterLayout->addWidget(fromCombo, 4);
         converterLayout->addWidget(arrowLabel, 1);
         converterLayout->addWidget(toCombo, 4);
         layout->addLayout(converterLayout);
@@ -53,10 +53,9 @@ public:
 
         // --- Result layout ---
         auto *resultLayout = new QHBoxLayout();
-        // result_label = new QLabel("Result", this);
+        // result = new QLabel("Result", this);
         result = new QLabel(this);
         result->setStyleSheet("QLabel { border: 1px solid #bebebe; border-radius: 2px; padding: 2px; background: #ffffff; }");
-        // resultLayout->addWidget(result_label);
         resultLayout->addWidget(result);
 
         auto *copyButton = new QPushButton(this);
@@ -107,8 +106,8 @@ public:
             Qt::WindowCloseButtonHint |
             Qt::WindowStaysOnTopHint
         );
-        setFixedSize(240, 200);
-        setWindowTitle("Gunter");
+        setFixedSize(220, 200);
+        setWindowTitle("Ell");
         setWindowIcon(QIcon(":/assets/icon.png"));
     }
 
@@ -138,7 +137,7 @@ private slots:
 
     void showAbout() {
         QString text =
-            "<b>Gunter – Unit Converter for Engineers</b><br><br>"
+            "<b>Ell – Engineering Unit Converter</b><br><br>"
             "<u>Features:</u><br>"
             "- Supports multiple categories<br>"
             "- From → To conversion<br>"
@@ -156,14 +155,12 @@ private slots:
             "<a href='https://github.com/shuvroce/unit-converter'>GitHub</a>";
             // "</div>";
 
-        QMessageBox msgBox(this);  // parent = main window
+        QMessageBox msgBox(this);
         msgBox.setWindowTitle("About");
         msgBox.setTextFormat(Qt::RichText);
         msgBox.setTextInteractionFlags(Qt::TextBrowserInteraction);
         msgBox.setText(text);
         msgBox.setStandardButtons(QMessageBox::Ok);
-
-        // make sure it stays on top like the main app
         msgBox.setWindowFlags(msgBox.windowFlags() | Qt::WindowStaysOnTopHint);
 
         msgBox.exec();
