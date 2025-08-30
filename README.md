@@ -34,3 +34,4 @@ A lightweight, always-on-top **unit converter** desktop application for civil an
 2. Run the installer and follow the guide.  
 3. Launch the app from Start Menu or desktop shortcut.  
 
+Note: If you see windows smart screen warning (as the apps is unsigned), just ignore it and run anyway.
